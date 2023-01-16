@@ -26,6 +26,10 @@ def main(page: ft.Page):
    
     img.src=f"{nombreEquipo}"
     img = ft.Image(src=f"atleticodebilbao.jpg", width=100, height=100)
+    img2 = ft.Image(src=f"atleticodemadrid.jpg", width=100, height=100)
+    img3 = ft.Image(src=f"betis.jpg", width=100, height=100)
+    img4 = ft.Image(src=f"mardrid.jpg", width=100, height=100)
+    img5 = ft.Image(src=f"barcelona.jpg", width=100, height=100)
 
     dropdown_menu=ft.Dropdown(width=200, options=[ft.dropdown.Option("Madrid"),ft.dropdown.Option("Barcelona"),
     ft.dropdown.Option("Atletico del Madrid"),ft.dropdown.Option("Atletico de Bilbao"),
@@ -33,7 +37,7 @@ def main(page: ft.Page):
     
     page.add(dropdown_menu)
 
-    page.add(img)
+    page.add(img, img2, img3, img4, img5)
 
 
 
