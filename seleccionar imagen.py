@@ -5,30 +5,32 @@ import flet as ft
 def main(page: ft.Page):
     page.title="Proyecto Ángela y Nerea"
    
+    img = ft.Image(src=f"kjh", width=100, height=100)
    
     nombreEquipo = ""
 
-    def dropdown_changed(e):
+    def cambiar_imagen(e):
         if (dropdown_menu.value == "Madrid"):
-            nombreEquipo= "imagenesEquipos/madrid.jpg"
+            img.src = "madrid.jpg"
         elif (dropdown_menu.value == "Barcelona"):
-            nombreEquipo = "imagenesEquipos/barcelona.jpg"
+            img.src = "barcelona.jpg"
         elif (dropdown_menu.value == "Betis"):
-            nombreEquipo = "imagenesEquipos/betis.jpg" 
+            img.src = "betis.jpg" 
         elif (dropdown_menu.value == "Atletico de Bilbao"):
-            nombreEquipo = "imagenesEquipos/atleticodebilbao.jpg"   
+            img.src = "atleticodebilbao.jpg"   
         else:
-            nombreEquipo = "imagenesEquipos/atleticodemadrid.jpg"
-
+            img.src = "atleticodemadrid.jpg"
            
-    img = ft.Image(src=f"atleticodebilbao.jpg", width=100, height=100)
+    
+        page.update()
+   
     
 
     dropdown_menu=ft.Dropdown(width=200, options=[ft.dropdown.Option("Madrid"),ft.dropdown.Option("Barcelona"),
     ft.dropdown.Option("Atletico del Madrid"),ft.dropdown.Option("Atletico de Bilbao"),
-    ft.dropdown.Option("Betis")],on_change=dropdown_changed)
+    ft.dropdown.Option("Betis")],on_change=cambiar_imagen)
     
-    page.add(img,dropdown_menu)
+    page.add(dropdown_menu,img)
 
    
 
