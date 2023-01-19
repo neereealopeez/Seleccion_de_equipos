@@ -1,11 +1,14 @@
 import flet as ft
 
 
-
 def main(page: ft.Page):
     page.title="Proyecto Ángela y Nerea"
-   
-    img = ft.Image(src=f"kjh", width=100, height=100)
+
+    vEquipos=["Madrid","Barcelona","Atletico de Bilbao","Atletico de Madrid","Betis"]
+    
+
+
+    img = ft.Image(src=f"esto no se ve", width=100, height=100)
    
     nombreEquipo = ""
 
@@ -26,10 +29,12 @@ def main(page: ft.Page):
    
     
 
-    dropdown_menu=ft.Dropdown(width=200, options=[ft.dropdown.Option("Madrid"),ft.dropdown.Option("Barcelona"),
-    ft.dropdown.Option("Atletico del Madrid"),ft.dropdown.Option("Atletico de Bilbao"),
-    ft.dropdown.Option("Betis")],on_change=cambiar_imagen)
-    
+
+    dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
+
+    for equipo in vEquipos:
+        dropdown_menu.options.append(ft.dropdown.Option (equipo))
+
     page.add(dropdown_menu,img)
 
    
