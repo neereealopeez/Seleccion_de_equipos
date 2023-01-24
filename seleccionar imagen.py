@@ -28,10 +28,16 @@ def main(page: ft.Page):
         page.update()
    
     def guardarEquipo(e):
-        vEquiposSeleccionados.append(dropdown_menu.value)
-        print(vEquiposSeleccionados)
+        equipo=dropdown_menu.value
+        if(vEquiposSeleccionados.count(equipo)==0):
+            vEquiposSeleccionados.append(dropdown_menu.value)
+        else:
+            dlg= ft.AlertDialog(title=ft.Text(f"El equipo {equipo} ya está dentro de la lista"))
+            page.dialog = dlg
+            dlg.open = True
+            page.update()
 
-
+       
     dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
 
     for equipo in vEquipos:
