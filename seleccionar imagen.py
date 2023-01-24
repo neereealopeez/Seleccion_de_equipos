@@ -6,7 +6,7 @@ def main(page: ft.Page):
 
     vEquipos=["Madrid","Barcelona","Atletico de Bilbao","Atletico de Madrid","Betis"]
     
-
+    vEquiposSeleccionados=[]
 
     img = ft.Image(src=f"esto no se ve", width=100, height=100)
    
@@ -27,18 +27,19 @@ def main(page: ft.Page):
     
         page.update()
    
-    
+    def guardarEquipo(e):
+        vEquiposSeleccionados.append(dropdown_menu.value)
+        print(vEquiposSeleccionados)
 
 
     dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
 
     for equipo in vEquipos:
         dropdown_menu.options.append(ft.dropdown.Option (equipo))
-
     page.add(dropdown_menu,img)
 
    
-
-
+    botonAñadir =ft.ElevatedButton(text="Añadir equipo", on_click=guardarEquipo)
+    page.add(botonAñadir)
 
 ft.app(target=main, assets_dir="imagenesEquipos")
