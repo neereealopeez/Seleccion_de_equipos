@@ -33,8 +33,9 @@ def main(page: ft.Page):
         equipo=dropdown_menu.value
         if(vEquiposSeleccionados.count(equipo)==0):
             vEquiposSeleccionados.append(dropdown_menu.value)
-            lv.controls.append(ft.Text(equipo))
-            lv.controls.append(ft.Image(src="betis.jpg"))
+            row=ft.Row(controls=[ft.Image(src=img.src ,width=50,height=50),ft.Text(equipo)])
+            lv.controls.append(row)
+           
         else:
             dlg= ft.AlertDialog(title=ft.Text(f"El equipo {equipo} ya está dentro de la lista"))
             page.dialog = dlg
@@ -45,8 +46,6 @@ def main(page: ft.Page):
 
        
     dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
-
-
 
     
     for equipo in vEquipos:
