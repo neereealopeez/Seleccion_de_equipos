@@ -3,14 +3,26 @@ import flet as ft
 
 def main(page: ft.Page):
     page.title="Proyecto Ángela y Nerea"
+    
+    def cargarEquipos():
+        vEquipos=[]
+        f = open("equipos.txt", "r")
 
-    vEquipos=["Madrid","Barcelona","Atletico de Bilbao","Atletico de Madrid","Betis"]
+        for linea in f:
+            vEquipos.append(linea)
+
+        f.close()
+        return vEquipos
+
+    vEquipos=cargarEquipos()
     
     vEquiposSeleccionados=[]
 
     img = ft.Image(src=f"esto no se ve", width=100, height=100)
    
     nombreEquipo = ""
+
+
 
     def cambiar_imagen(e):
         if (dropdown_menu.value == "Madrid"):
