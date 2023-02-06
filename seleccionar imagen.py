@@ -23,6 +23,7 @@ def main(page: ft.Page):
     nombreEquipo = ""
 
 
+    lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
 
     def cambiar_imagen(e):
         if (dropdown_menu.value == "Madrid"):
@@ -43,21 +44,27 @@ def main(page: ft.Page):
         equipo=dropdown_menu.value
         if(vEquiposSeleccionados.count(equipo)==0):
             vEquiposSeleccionados.append(dropdown_menu.value)
+            row=ft.Row(controls=[ft.Image(src=img.src ,width=50,height=50),ft.Text(equipo)])
+            lv.controls.append(row)
+           
         else:
             dlg= ft.AlertDialog(title=ft.Text(f"El equipo {equipo} ya está dentro de la lista"))
             page.dialog = dlg
             dlg.open = True
-            page.update()
+    
+        page.update()
+        
 
        
     dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
 
+    
     for equipo in vEquipos:
         dropdown_menu.options.append(ft.dropdown.Option (equipo))
     page.add(dropdown_menu,img)
 
    
     botonAñadir =ft.ElevatedButton(text="Añadir equipo", on_click=guardarEquipo)
-    page.add(botonAñadir)
+    page.add(botonAñadir,lv)
 
 ft.app(target=main, assets_dir="imagenesEquipos")
