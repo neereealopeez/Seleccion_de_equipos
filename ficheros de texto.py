@@ -4,4 +4,12 @@ f.write('hola mundo')
 #for linea in f:
     #print(linea, end="")
 
-f.close()
+'''
+notas= [5,6,7,8]
+f=open ("virus.txt","w")
+while True
+'''
+'''
+
+'''
+#f.close()

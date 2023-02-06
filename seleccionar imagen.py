@@ -34,8 +34,11 @@ def main(page: ft.Page):
             img.src = "betis.jpg" 
         elif (dropdown_menu.value == "Atletico de Bilbao"):
             img.src = "atleticodebilbao.jpg"   
-        else:
+        elif(dropdown_menu.value == "Atletico de Madrid"):
             img.src = "atleticodemadrid.jpg"
+        else:
+            img.src = "imagenno.jpg"
+
            
     
         page.update()
