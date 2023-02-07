@@ -3,6 +3,8 @@ import flet as ft
 
 def main(page: ft.Page):
     page.title="Proyecto Ángela y Nerea"
+
+
     
     def cargarEquipos():
         vEquipos=[]
@@ -26,17 +28,17 @@ def main(page: ft.Page):
     lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
 
     def cambiar_imagen(e):
-        if (dropdown_menu.value == "Madrid\n"):
+        if (dropdown_menu.value == "Madrid"):
             img.src = "madrid.jpg"
-        elif (dropdown_menu.value == "Barcelona\n"):
+        elif (dropdown_menu.value == "Barcelona"):
             img.src = "barcelona.jpg"
-        elif (dropdown_menu.value == "Betis\n"):
+        elif (dropdown_menu.value == "Betis"):
             img.src = "betis.jpg" 
-        elif (dropdown_menu.value == "Atletico de Bilbao\n"):
+        elif (dropdown_menu.value == "Atletico de Bilbao"):
             img.src = "atleticodebilbao.jpg"   
-        elif(dropdown_menu.value == "Atletico de Madrid\n"):
+        elif(dropdown_menu.value == "Atletico de Madrid"):
             img.src = "atleticodemadrid.jpg"
-        elif():
+        else:
             img.src = "imagenno.jpg"
 
            
