@@ -3,9 +3,16 @@ import flet as ft
 
 def main(page: ft.Page):
     page.title="Proyecto Ángela y Nerea"
-
+    vEquiposSeleccionados=[]
+    img = ft.Image(src=f"esto no se ve", width=100, height=100)
+    vEquipos = []
+    lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
+    
 
     
+
+#Funciones del programa
+
     def cargarEquipos():
         vEquipos=[]
         f = open("equipos.txt", "r")
@@ -16,27 +23,25 @@ def main(page: ft.Page):
         f.close()
         return vEquipos
 
-    vEquipos=cargarEquipos()
-    
-    vEquiposSeleccionados=[]
+        #Guardar todos los equipos seleccionados en un archivo
 
-    img = ft.Image(src=f"esto no se ve", width=100, height=100)
-   
-    nombreEquipo = ""
+    def guardarEquipo(e):
+        f = open('seleccionados.txt', 'w')
+        for equipo in vEquiposSeleccionados:
+            f.write(equipo)
+        f.close()
 
-
-    lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
 
     def cambiar_imagen(e):
-        if (dropdown_menu.value == "Madrid"):
+        if (dropdown_menu.value == "Madrid\n"):
             img.src = "madrid.jpg"
-        elif (dropdown_menu.value == "Barcelona"):
+        elif (dropdown_menu.value == "Barcelona\n"):
             img.src = "barcelona.jpg"
-        elif (dropdown_menu.value == "Betis"):
+        elif (dropdown_menu.value == "Betis\n"):
             img.src = "betis.jpg" 
-        elif (dropdown_menu.value == "Atletico de Bilbao"):
+        elif (dropdown_menu.value == "Atletico de Bilbao\n"):
             img.src = "atleticodebilbao.jpg"   
-        elif(dropdown_menu.value == "Atletico de Madrid"):
+        elif(dropdown_menu.value == "Atletico de Madrid\n"):
             img.src = "atleticodemadrid.jpg"
         else:
             img.src = "imagenno.jpg"
@@ -45,7 +50,9 @@ def main(page: ft.Page):
     
         page.update()
    
-    def guardarEquipo(e):
+
+
+    def añadirEquipo(e):
         equipo=dropdown_menu.value
         if(vEquiposSeleccionados.count(equipo)==0):
             vEquiposSeleccionados.append(dropdown_menu.value)
@@ -58,10 +65,18 @@ def main(page: ft.Page):
             dlg.open = True
     
         page.update()
-        
 
-       
+
+#Fin funciones del progrma
+
+
+   
+#Inicio programa Principal
+
+    vEquipos=cargarEquipos()
+    
     dropdown_menu= ft.Dropdown(width=205, on_change=cambiar_imagen, hint_text="Selecciona un equipo")
+   
 
     
     for equipo in vEquipos:
@@ -69,7 +84,10 @@ def main(page: ft.Page):
     page.add(dropdown_menu,img)
 
    
-    botonAñadir =ft.ElevatedButton(text="Añadir equipo", on_click=guardarEquipo)
+    botonAñadir =ft.ElevatedButton(text="Añadir equipo", on_click=añadirEquipo)
     page.add(botonAñadir,lv)
+
+    botonGuardar =ft.ElevatedButton(text="Guardar equipo", on_click=guardarEquipo)
+    page.add(botonGuardar,lv)
 
 ft.app(target=main, assets_dir="imagenesEquipos")
