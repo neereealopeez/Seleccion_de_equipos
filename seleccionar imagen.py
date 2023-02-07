@@ -26,15 +26,15 @@ def main(page: ft.Page):
     lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
 
     def cambiar_imagen(e):
-        if (dropdown_menu.value == "Madrid"):
+        if (dropdown_menu.value == "Madrid\n"):
             img.src = "madrid.jpg"
-        elif (dropdown_menu.value == "Barcelona"):
+        elif (dropdown_menu.value == "Barcelona\n"):
             img.src = "barcelona.jpg"
-        elif (dropdown_menu.value == "Betis"):
+        elif (dropdown_menu.value == "Betis\n"):
             img.src = "betis.jpg" 
-        elif (dropdown_menu.value == "Atletico de Bilbao"):
+        elif (dropdown_menu.value == "Atletico de Bilbao\n"):
             img.src = "atleticodebilbao.jpg"   
-        elif(dropdown_menu.value == "Atletico de Madrid"):
+        elif(dropdown_menu.value == "Atletico de Madrid\n"):
             img.src = "atleticodemadrid.jpg"
         else:
             img.src = "imagenno.jpg"
