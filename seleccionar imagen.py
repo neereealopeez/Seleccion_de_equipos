@@ -6,7 +6,7 @@ def main(page: ft.Page):
     vEquiposSeleccionados=[]
     img = ft.Image(src=f"esto no se ve", width=100, height=100)
     vEquipos = []
-    lv = ft.ListView(expand=True, spacing=20, auto_scroll=True)
+    lv = ft.ListView(expand=False, spacing=10, auto_scroll=True)
     
 
     
@@ -67,7 +67,7 @@ def main(page: ft.Page):
         page.update()
 
 
-#Fin funciones del progrma
+#Fin funciones del programa
 
 
    
@@ -87,7 +87,7 @@ def main(page: ft.Page):
     botonAñadir =ft.ElevatedButton(text="Añadir equipo", on_click=añadirEquipo)
     page.add(botonAñadir,lv)
 
-    botonGuardar =ft.ElevatedButton(text="Guardar equipo", on_click=guardarEquipo)
+    botonGuardar =ft.ElevatedButton(text="Guardar equipo en el archivo", on_click=guardarEquipo)
     page.add(botonGuardar,lv)
 
 ft.app(target=main, assets_dir="imagenesEquipos")
