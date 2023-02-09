@@ -27,8 +27,10 @@ def main(page: ft.Page):
 
     def guardarEquipo(e):
         f = open('seleccionados.txt', 'w')
+        print(vEquiposSeleccionados)
         for equipo in vEquiposSeleccionados:
-            f.write(equipo)
+            eq = (str)(equipo)
+            f.write(eq.replace("\n","")+"\n")
         f.close()
 
 
